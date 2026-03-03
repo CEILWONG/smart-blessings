@@ -1,0 +1,57 @@
+# 依赖目录（镜像内会重新安装，无需拷贝）
+node_modules/
+
+# 环境配置文件（敏感信息，通过Compose传环境变量）
+.env
+.env.*
+
+# 版本控制文件
+.git/
+.gitignore
+
+# 日志文件
+logs/
+*.log
+
+# IDE配置文件（本地开发用，无需打包）
+.idea/
+.vscode/
+
+# 文档文件（镜像内不需要）
+README.md
+*.md
+
+# 代码格式化配置（开发工具用）
+.prettierrc
+
+# 示例环境变量文件（开发用）
+.env.example
+
+# Docker配置文件（镜像内不需要）
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# 测试文件（如果有）
+*.test.js
+*.spec.js
+__tests__/
+test/
+tests/
+
+# 测试覆盖率报告（如果有）
+coverage/
+
+# 临时文件
+*.tmp
+*.swp
+*.bak
+*.cache
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+
+# 构建输出目录（如果有）
+dist/
+build/

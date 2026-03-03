@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  # 你的应用服务名，可自定义
+  smart-blessings:
+    # 构建镜像（基于当前目录的Dockerfile）
+    build: .
+    # 镜像命名（构建后生成的镜像名）
+    image: smart-blessings:latest
+    # 端口映射：宿主机端口8080 → 容器内PORT变量（默认3000）
+    ports:
+      - "8080:${PORT:-3000}"
+    # 从.env文件加载环境变量
+    env_file:
+      - .env
+    # 容器崩溃自动重启（可选，生产环境建议加）
+    restart: always
+    # 容器名称（方便管理）
+    container_name: smart-blessings-app
