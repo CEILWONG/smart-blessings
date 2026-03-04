@@ -39,5 +39,46 @@ npm start
 
 访问 http://localhost:3000
 
+## 🐳 Docker 部署
+
+### 拉取镜像
+```bash
+docker pull ceilwong/smart-blessings:latest
+```
+
+### 运行容器
+```bash
+docker run -d \
+  --name smart-blessings \
+  -p 8080:3000 \
+  -e DASHSCOPE_API_KEY=your_api_key_here \
+  ceilwong/smart-blessings:latest
+```
+
+### 使用 docker-compose
+
+**方式1：本地构建**
+```bash
+# 复制并编辑 .env 文件
+cp .env.example .env
+
+# 启动容器（自动构建）
+docker-compose up -d
+```
+
+**方式2：使用已发布镜像**
+1. 编辑 `docker-compose.yml`，注释掉 `build: .` 和 `image: smart-blessings:latest`
+2. 取消注释 `image: ceilwong/smart-blessings:latest`
+3. 启动容器
+```bash
+docker-compose up -d
+```
+
+### 环境变量说明
+| 环境变量 | 描述 | 默认值 |
+|---------|------|-------|
+| `PORT` | 服务运行端口 | 3000 |
+| `DASHSCOPE_API_KEY` | 通义千问 API 密钥 | 无（必须配置） |
+
 ## 📄 开源协议
 MIT License
