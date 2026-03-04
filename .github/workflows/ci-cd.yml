@@ -28,6 +28,6 @@ jobs:
       run: docker build -t smart-blessings .
     - name: Push to Docker Hub
       run: |
-        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username "${{ secrets.DOCKER_USERNAME }}" --password-stdin
         docker tag smart-blessings:latest ${{ secrets.DOCKER_USERNAME }}/smart-blessings:latest
         docker push ${{ secrets.DOCKER_USERNAME }}/smart-blessings:latest
